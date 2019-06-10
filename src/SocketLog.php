@@ -12,7 +12,7 @@
 namespace think\log\driver;
 
 use think\App;
-use think\log\LogHandlerInterface;
+use think\contract\LogHandlerInterface;
 
 /**
  * github: https://github.com/luofei614/SocketLog
