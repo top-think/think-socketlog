@@ -33,6 +33,8 @@ class SocketLog implements LogHandlerInterface
         'force_client_ids'    => [],
         // 限制允许读取日志的client_id
         'allow_client_ids'    => [],
+        //输出到浏览器默认展开的日志级别
+        'expand_level'        => ['debug'],
     ];
 
     protected $css = [
@@ -98,7 +100,7 @@ class SocketLog implements LogHandlerInterface
 
         foreach ($log as $type => $val) {
             $trace[] = [
-                'type' => 'groupCollapsed',
+                'type' => in_array($type, $this->config['expand_level']) ? 'group' : 'groupCollapsed',
                 'msg'  => '[ ' . $type . ' ]',
                 'css'  => $this->css[$type] ?? '',
             ];
